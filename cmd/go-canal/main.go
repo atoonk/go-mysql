@@ -11,7 +11,7 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/go-mysql-org/go-mysql/canal"
+	"github.com/atoonk/go-mysql/canal"
 	"github.com/atoonk/go-mysql/mysql"
 )
 

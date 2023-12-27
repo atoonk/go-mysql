@@ -12,7 +12,7 @@ import (
 	"regexp"
 	"sync"
 
-	"github.com/go-mysql-org/go-mysql/client"
+	"github.com/atoonk/go-mysql/client"
 	"github.com/atoonk/go-mysql/mysql"
 	"github.com/pingcap/errors"
 	"github.com/siddontang/go/hack"

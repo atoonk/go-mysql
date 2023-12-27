@@ -5,8 +5,8 @@ import (
 	"time"
 
 	"github.com/atoonk/go-mysql/mysql"
-	"github.com/go-mysql-org/go-mysql/replication"
-	"github.com/go-mysql-org/go-mysql/schema"
+	"github.com/atoonk/go-mysql/replication"
+	"github.com/atoonk/go-mysql/schema"
 	"github.com/pingcap/errors"
 	"github.com/pingcap/tidb/pkg/parser/ast"
 )

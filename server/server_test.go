@@ -17,8 +17,8 @@ import (
 	"github.com/stretchr/testify/suite"
 
 	"github.com/atoonk/go-mysql/mysql"
-	"github.com/go-mysql-org/go-mysql/test_util"
-	"github.com/go-mysql-org/go-mysql/test_util/test_keys"
+	"github.com/atoonk/go-mysql/test_util"
+	"github.com/atoonk/go-mysql/test_util/test_keys"
 )
 
 var testUser = flag.String("user", "root", "MySQL user")

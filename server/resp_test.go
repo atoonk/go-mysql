@@ -5,8 +5,8 @@ import (
 	"testing"
 
 	"github.com/atoonk/go-mysql/mysql"
-	"github.com/go-mysql-org/go-mysql/packet"
-	mockconn "github.com/go-mysql-org/go-mysql/test_util/conn"
+	"github.com/atoonk/go-mysql/packet"
+	mockconn "github.com/atoonk/go-mysql/test_util/conn"
 	"github.com/stretchr/testify/require"
 )
 

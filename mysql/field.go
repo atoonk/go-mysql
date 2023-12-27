@@ -6,7 +6,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/go-mysql-org/go-mysql/utils"
+	"github.com/atoonk/go-mysql/utils"
 )
 
 type FieldData []byte

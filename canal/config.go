@@ -12,7 +12,7 @@ import (
 	"github.com/siddontang/go-log/log"
 	"github.com/siddontang/go-log/loggers"
 
-	"github.com/go-mysql-org/go-mysql/client"
+	"github.com/atoonk/go-mysql/client"
 	"github.com/atoonk/go-mysql/mysql"
 )
 

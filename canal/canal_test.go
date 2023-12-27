@@ -11,8 +11,8 @@ import (
 	"github.com/stretchr/testify/suite"
 
 	"github.com/atoonk/go-mysql/mysql"
-	"github.com/go-mysql-org/go-mysql/replication"
-	"github.com/go-mysql-org/go-mysql/test_util"
+	"github.com/atoonk/go-mysql/replication"
+	"github.com/atoonk/go-mysql/test_util"
 )
 
 type canalTestSuite struct {

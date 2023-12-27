@@ -12,7 +12,7 @@ import (
 	"github.com/siddontang/go/hack"
 
 	. "github.com/atoonk/go-mysql/mysql"
-	"github.com/go-mysql-org/go-mysql/utils"
+	"github.com/atoonk/go-mysql/utils"
 )
 
 func (c *Conn) readUntilEOF() (err error) {

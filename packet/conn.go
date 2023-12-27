@@ -14,7 +14,7 @@ import (
 	"sync"
 
 	. "github.com/atoonk/go-mysql/mysql"
-	"github.com/go-mysql-org/go-mysql/utils"
+	"github.com/atoonk/go-mysql/utils"
 	"github.com/klauspost/compress/zstd"
 	"github.com/pingcap/errors"
 )

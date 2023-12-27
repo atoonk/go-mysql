@@ -5,7 +5,7 @@ import (
 	"fmt"
 
 	. "github.com/atoonk/go-mysql/mysql"
-	"github.com/go-mysql-org/go-mysql/replication"
+	"github.com/atoonk/go-mysql/replication"
 )
 
 func (c *Conn) writeOK(r *Result) error {

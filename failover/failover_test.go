@@ -8,7 +8,7 @@ import (
 	"github.com/stretchr/testify/require"
 	"github.com/stretchr/testify/suite"
 
-	"github.com/go-mysql-org/go-mysql/test_util"
+	"github.com/atoonk/go-mysql/test_util"
 )
 
 var enable_failover_test = flag.Bool("test-failover", false, "enable test failover")
