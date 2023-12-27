@@ -15,7 +15,7 @@ import (
 	"github.com/stretchr/testify/suite"
 
 	"github.com/go-mysql-org/go-mysql/client"
-	"github.com/go-mysql-org/go-mysql/mysql"
+	"github.com/atoonk/go-mysql/mysql"
 	"github.com/go-mysql-org/go-mysql/test_util"
 )
 

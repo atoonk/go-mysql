@@ -11,7 +11,7 @@ import (
 
 	"github.com/pingcap/errors"
 
-	"github.com/go-mysql-org/go-mysql/mysql"
+	"github.com/atoonk/go-mysql/mysql"
 	"github.com/go-mysql-org/go-mysql/replication"
 )
 

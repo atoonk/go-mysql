@@ -10,7 +10,7 @@ import (
 	"github.com/stretchr/testify/require"
 	"github.com/stretchr/testify/suite"
 
-	"github.com/go-mysql-org/go-mysql/mysql"
+	"github.com/atoonk/go-mysql/mysql"
 	"github.com/go-mysql-org/go-mysql/test_util"
 	"github.com/go-mysql-org/go-mysql/test_util/test_keys"
 )

@@ -7,7 +7,7 @@ import (
 
 	"github.com/siddontang/go/sync2"
 
-	. "github.com/go-mysql-org/go-mysql/mysql"
+	. "github.com/atoonk/go-mysql/mysql"
 	"github.com/go-mysql-org/go-mysql/packet"
 )
 

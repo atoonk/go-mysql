@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	"github.com/go-mysql-org/go-mysql/client"
-	. "github.com/go-mysql-org/go-mysql/mysql"
+	. "github.com/atoonk/go-mysql/mysql"
 )
 
 type User struct {

@@ -5,7 +5,7 @@ import (
 	"testing"
 
 	"github.com/go-mysql-org/go-mysql/mocks"
-	"github.com/go-mysql-org/go-mysql/mysql"
+	"github.com/atoonk/go-mysql/mysql"
 	"github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/require"
 )

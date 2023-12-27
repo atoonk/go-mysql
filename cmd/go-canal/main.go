@@ -12,7 +12,7 @@ import (
 	"time"
 
 	"github.com/go-mysql-org/go-mysql/canal"
-	"github.com/go-mysql-org/go-mysql/mysql"
+	"github.com/atoonk/go-mysql/mysql"
 )
 
 var (

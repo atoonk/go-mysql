@@ -8,7 +8,7 @@ import (
 
 	"github.com/klauspost/compress/zstd"
 
-	. "github.com/go-mysql-org/go-mysql/mysql"
+	. "github.com/atoonk/go-mysql/mysql"
 )
 
 // On The Wire: Field Types
