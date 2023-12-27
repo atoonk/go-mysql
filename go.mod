@@ -5,6 +5,7 @@ go 1.18
 require (
 	github.com/BurntSushi/toml v1.3.2
 	github.com/Masterminds/semver v1.5.0
+	github.com/go-mysql-org/go-mysql v1.7.0
 	github.com/go-sql-driver/mysql v1.7.1
 	github.com/google/uuid v1.3.0
 	github.com/jmoiron/sqlx v1.3.3
@@ -23,6 +24,7 @@ require (
 	github.com/kr/pretty v0.3.1 // indirect
 	github.com/pingcap/failpoint v0.0.0-20220801062533-2eaa32854a6c // indirect
 	github.com/pingcap/log v1.1.1-0.20230317032135-a0d097d16e22 // indirect
+	github.com/pingcap/tidb/parser v0.0.0-20221126021158-6b02a5d8ba7d // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/remyoudompheng/bigfft v0.0.0-20230129092748-24d4a6f8daec // indirect
 	github.com/rogpeppe/go-internal v1.10.0 // indirect

@@ -31,9 +31,9 @@ type Field struct {
 type FieldValueType uint8
 
 type FieldValue struct {
-	Type  FieldValueType
-	value uint64 // Also for int64 and float64
-	str   []byte
+	Type FieldValueType
+	Val  uint64 // Also for int64 and float64
+	Str  []byte
 }
 
 const (
@@ -184,19 +184,19 @@ func (f *Field) Dump() []byte {
 }
 
 func (fv *FieldValue) AsUint64() uint64 {
-	return fv.value
+	return fv.Val
 }
 
 func (fv *FieldValue) AsInt64() int64 {
-	return utils.Uint64ToInt64(fv.value)
+	return utils.Uint64ToInt64(fv.Val)
 }
 
 func (fv *FieldValue) AsFloat64() float64 {
-	return utils.Uint64ToFloat64(fv.value)
+	return utils.Uint64ToFloat64(fv.Val)
 }
 
 func (fv *FieldValue) AsString() []byte {
-	return fv.str
+	return fv.Str
 }
 
 func (fv *FieldValue) Value() interface{} {
@@ -227,13 +227,13 @@ func (fv *FieldValue) String() string {
 		return strconv.FormatFloat(fv.AsFloat64(), 'f', -1, 64)
 	case FieldValueTypeString:
 		b := strings.Builder{}
-		b.Grow(len(fv.str) + 2)
+		b.Grow(len(fv.Str) + 2)
 		b.WriteByte('\'')
-		for i := range fv.str {
-			if fv.str[i] == '\'' {
+		for i := range fv.Str {
+			if fv.Str[i] == '\'' {
 				b.WriteByte('\\')
 			}
-			b.WriteByte(fv.str[i])
+			b.WriteByte(fv.Str[i])
 		}
 		b.WriteByte('\'')
 		return b.String()
