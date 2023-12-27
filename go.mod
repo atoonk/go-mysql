@@ -1,4 +1,4 @@
-module github.com/go-mysql-org/go-mysql
+module module github.com/atoonk/go-mysql
 
 go 1.18
 
