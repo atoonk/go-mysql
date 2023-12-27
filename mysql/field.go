@@ -199,6 +199,9 @@ func (fv *FieldValue) AsString() []byte {
 	return fv.Str
 }
 
+// was before fork
+// func (fv *FieldValue) Value() interface{} {
+
 func (fv *FieldValue) Value() interface{} {
 	switch fv.Type {
 	case FieldValueTypeUnsigned:

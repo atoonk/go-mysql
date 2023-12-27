@@ -48,21 +48,21 @@ func (p RowData) ParseText(f []*Field, dst []FieldValue) ([]FieldValue, error) {
 					var val uint64
 					data[i].Type = FieldValueTypeUnsigned
 					val, err = strconv.ParseUint(utils.ByteSliceToString(v), 10, 64)
-					data[i].value = val
+					data[i].Val = val
 				} else {
 					var val int64
 					data[i].Type = FieldValueTypeSigned
 					val, err = strconv.ParseInt(utils.ByteSliceToString(v), 10, 64)
-					data[i].value = utils.Int64ToUint64(val)
+					data[i].Val = utils.Int64ToUint64(val)
 				}
 			case MYSQL_TYPE_FLOAT, MYSQL_TYPE_DOUBLE:
 				var val float64
 				data[i].Type = FieldValueTypeFloat
 				val, err = strconv.ParseFloat(utils.ByteSliceToString(v), 64)
-				data[i].value = utils.Float64ToUint64(val)
+				data[i].Val = utils.Float64ToUint64(val)
 			default:
 				data[i].Type = FieldValueTypeString
-				data[i].str = append(data[i].str[:0], v...)
+				data[i].Str = append(data[i].Str[:0], v...)
 			}
 
 			if err != nil {
@@ -111,11 +111,11 @@ func (p RowData) ParseBinary(f []*Field, dst []FieldValue) ([]FieldValue, error)
 			if isUnsigned {
 				v := ParseBinaryUint8(p[pos : pos+1])
 				data[i].Type = FieldValueTypeUnsigned
-				data[i].value = uint64(v)
+				data[i].Val = uint64(v)
 			} else {
 				v := ParseBinaryInt8(p[pos : pos+1])
 				data[i].Type = FieldValueTypeSigned
-				data[i].value = utils.Int64ToUint64(int64(v))
+				data[i].Val = utils.Int64ToUint64(int64(v))
 			}
 			pos++
 			continue
@@ -124,11 +124,11 @@ func (p RowData) ParseBinary(f []*Field, dst []FieldValue) ([]FieldValue, error)
 			if isUnsigned {
 				v := ParseBinaryUint16(p[pos : pos+2])
 				data[i].Type = FieldValueTypeUnsigned
-				data[i].value = uint64(v)
+				data[i].Val = uint64(v)
 			} else {
 				v := ParseBinaryInt16(p[pos : pos+2])
 				data[i].Type = FieldValueTypeSigned
-				data[i].value = utils.Int64ToUint64(int64(v))
+				data[i].Val = utils.Int64ToUint64(int64(v))
 			}
 			pos += 2
 			continue
@@ -137,11 +137,11 @@ func (p RowData) ParseBinary(f []*Field, dst []FieldValue) ([]FieldValue, error)
 			if isUnsigned {
 				v := ParseBinaryUint32(p[pos : pos+4])
 				data[i].Type = FieldValueTypeUnsigned
-				data[i].value = uint64(v)
+				data[i].Val = uint64(v)
 			} else {
 				v := ParseBinaryInt32(p[pos : pos+4])
 				data[i].Type = FieldValueTypeSigned
-				data[i].value = utils.Int64ToUint64(int64(v))
+				data[i].Val = utils.Int64ToUint64(int64(v))
 			}
 			pos += 4
 			continue
@@ -150,11 +150,11 @@ func (p RowData) ParseBinary(f []*Field, dst []FieldValue) ([]FieldValue, error)
 			if isUnsigned {
 				v := ParseBinaryUint64(p[pos : pos+8])
 				data[i].Type = FieldValueTypeUnsigned
-				data[i].value = v
+				data[i].Val = v
 			} else {
 				v := ParseBinaryInt64(p[pos : pos+8])
 				data[i].Type = FieldValueTypeSigned
-				data[i].value = utils.Int64ToUint64(v)
+				data[i].Val = utils.Int64ToUint64(v)
 			}
 			pos += 8
 			continue
@@ -162,14 +162,14 @@ func (p RowData) ParseBinary(f []*Field, dst []FieldValue) ([]FieldValue, error)
 		case MYSQL_TYPE_FLOAT:
 			v := ParseBinaryFloat32(p[pos : pos+4])
 			data[i].Type = FieldValueTypeFloat
-			data[i].value = utils.Float64ToUint64(float64(v))
+			data[i].Val = utils.Float64ToUint64(float64(v))
 			pos += 4
 			continue
 
 		case MYSQL_TYPE_DOUBLE:
 			v := ParseBinaryFloat64(p[pos : pos+8])
 			data[i].Type = FieldValueTypeFloat
-			data[i].value = utils.Float64ToUint64(v)
+			data[i].Val = utils.Float64ToUint64(v)
 			pos += 8
 			continue
 
@@ -185,7 +185,7 @@ func (p RowData) ParseBinary(f []*Field, dst []FieldValue) ([]FieldValue, error)
 
 			if !isNull {
 				data[i].Type = FieldValueTypeString
-				data[i].str = append(data[i].str[:0], v...)
+				data[i].Str = append(data[i].Str[:0], v...)
 				continue
 			} else {
 				data[i].Type = FieldValueTypeNull
@@ -204,7 +204,7 @@ func (p RowData) ParseBinary(f []*Field, dst []FieldValue) ([]FieldValue, error)
 			}
 
 			data[i].Type = FieldValueTypeString
-			data[i].str, err = FormatBinaryDate(int(num), p[pos:])
+			data[i].Str, err = FormatBinaryDate(int(num), p[pos:])
 			pos += int(num)
 
 			if err != nil {
@@ -223,7 +223,7 @@ func (p RowData) ParseBinary(f []*Field, dst []FieldValue) ([]FieldValue, error)
 			}
 
 			data[i].Type = FieldValueTypeString
-			data[i].str, err = FormatBinaryDateTime(int(num), p[pos:])
+			data[i].Str, err = FormatBinaryDateTime(int(num), p[pos:])
 			pos += int(num)
 
 			if err != nil {
@@ -242,7 +242,7 @@ func (p RowData) ParseBinary(f []*Field, dst []FieldValue) ([]FieldValue, error)
 			}
 
 			data[i].Type = FieldValueTypeString
-			data[i].str, err = FormatBinaryTime(int(num), p[pos:])
+			data[i].Str, err = FormatBinaryTime(int(num), p[pos:])
 			pos += int(num)
 
 			if err != nil {
