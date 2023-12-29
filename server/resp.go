@@ -232,6 +232,7 @@ func (c *Conn) WriteValue(value interface{}) error {
 		return c.writeOK(nil)
 	case *Result:
 		if v != nil && v.Resultset != nil {
+			fmt.Printf("writeResultset: %+v\n", v.Resultset)
 			return c.writeResultset(v.Resultset)
 		} else {
 			return c.writeOK(v)
