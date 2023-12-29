@@ -50,9 +50,13 @@ func (c *Conn) HandleCommand() error {
 		return err
 	}
 
+	fmt.Println("going to dispatch")
 	v := c.dispatch(data)
+	fmt.Println("dispatched")
 
+	fmt.Println("going to write value")
 	err = c.WriteValue(v)
+	fmt.Println("wrote value")
 
 	if c.Conn != nil {
 		c.ResetSequence()

@@ -9,6 +9,7 @@ import (
 )
 
 func (c *Conn) writeOK(r *Result) error {
+	fmt.Println("writeOK")
 	if r == nil {
 		r = &Result{}
 	}
